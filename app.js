@@ -17,7 +17,7 @@ app.use('/', route.init());
 
 const db = require('./models')
 
-db.sequelize.sync().then((req)=>{
+db.sequelize.sync({force: true}).then((req)=>{
     app.listen(PORT, () => {
         console.log('Connected to Server at port ' + PORT)
     })

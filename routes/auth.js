@@ -11,7 +11,7 @@ router.post('/login', auth.login);
 
 router.post('/category', auth.category)
 
-router.delete('/all-cat-del/:id',auth.catDel)
+router.delete('/all-cat-del/:id', auth.catDel)
 
 router.get('/all-cat', async (req, res) => {
   try {
@@ -23,9 +23,9 @@ router.get('/all-cat', async (req, res) => {
 })
 
 
-router.get('/dashbaord', auth.dashboard)
+router.get('/dash', auth.dashboard)
 
-
+router.post('/blog', auth.blog)
 
 
 module.exports = {

@@ -1,8 +1,9 @@
-'use strict';
+'use strict'
 
-module.exports = (sequelize,DataType) =>{
-  const category = sequelize.define("category",{
-    cat : DataType.STRING,
-  })
-  return category
+module.exports = (sequelize, DataType) => {
+    const cateogy = sequelize.define("category", {
+        cat : DataType.STRING
+    })
+return cateogy
 }
+
