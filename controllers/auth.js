@@ -154,16 +154,35 @@ exports.blogShow = async (req, res) => {
                 email: decoded.id
             }
         })
-        if(!user){
-            return res.json({status:'error',error:'anothrize user'})
+        if (!user) {
+            return res.json({ status: 'error', error: 'anothrize user' })
         }
-        
+
         const blogs = await _blog.findAll()
         console.log(blogs)
 
-        return res.json({status:'ok',data:blogs})
+        return res.json({ status: 'ok', data: blogs })
 
     } catch (error) {
         console.log(error)
+    }
+}
+
+exports.blogDelete = async(req, res)=> {
+    try {
+        const id = req.params.id
+        await _blog.destroy({
+            where: {
+                id
+            }
+        }).then(d => {
+            if (d === 1) {
+                return res.status(200).json({ status: 'ok' })
+            } else {
+                return res.status(400).json({ status: 'error' })
+            }
+        })
+    } catch (error) {
+        return res.status(404).json({ status: 'error', error: 'server error' })
     }
 }

@@ -15,6 +15,8 @@ router.post('/category', auth.category)
 
 router.delete('/all-cat-del/:id', auth.catDel)
 
+router.delete('/blog-delete/:id',auth.blogDelete)
+
 router.get('/all-cat', async (req, res) => {
   try {
     const cat = await _cat.findAll()
