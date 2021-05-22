@@ -13,23 +13,23 @@ module.exports = (sequelize, DataType) => {
             allowNull: false,
         },
         summary: {
-            type: DataType.STRING,
-            allowNull: false
+            type: DataType.TEXT('long'),
+            allowNull: false,
         },
         date: {
             type: DataType.STRING,
-            allowNull: false
+            allowNull: false,
         },
         draft: {
             type: DataType.BOOLEAN,
-            default: false
+            default: false,
         },
         link: {
             type: DataType.STRING,
-            allowNull: false
+            allowNull: false,
         },
         tages: {
-            type: DataType.ARRAY(DataType.STRING)
+            type: DataType.STRING,
         }
     })
     return Blog

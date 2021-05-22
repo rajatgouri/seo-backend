@@ -2,7 +2,9 @@ const router = require('express').Router();
 const auth = require('../controllers/auth');
 
 const db = require('../models');
+
 const _cat = db.category
+
 
 
 router.post('/signup', auth.signup)
@@ -27,6 +29,7 @@ router.get('/dash', auth.dashboard)
 
 router.post('/blog', auth.blog)
 
+router.get('/blogShow', auth.blogShow)
 
 module.exports = {
   router: router,
