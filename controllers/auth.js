@@ -168,7 +168,7 @@ exports.blogShow = async (req, res) => {
     }
 }
 
-exports.blogDelete = async(req, res)=> {
+exports.blogDelete = async (req, res) => {
     try {
         const id = req.params.id
         await _blog.destroy({
@@ -185,4 +185,18 @@ exports.blogDelete = async(req, res)=> {
     } catch (error) {
         return res.status(404).json({ status: 'error', error: 'server error' })
     }
+}
+
+exports.editCategory = async (req, res) => {
+    try {
+        const { cat } = req.body;
+        const category = await _cat.findByPk(req.params.id)
+        category.cat = cat
+        await category.save()
+        console.log('category change')
+        return res.json({status: "ok"})
+    } catch (error) {
+        return res.json({ status: 'error', error: 'server error' })
+    }
+    
 }
